@@ -1,7 +1,8 @@
 const getDashboardData = async (query) => {
-    const città = await fetch(`http://localhost:3333/users/destinations?search=${query}`)
-    console.log(città)
+    const città = await fetch(`http://localhost:3333/destinations?search=${query}`)
+    const cittàResponse = città.json();
+    console.log(cittàResponse)
 }
 
 //TEST
-getDashboardData(Roma);
+getDashboardData('london');
