@@ -5,14 +5,18 @@ async function fetchJson(url) {
 }
 
 const getDashboardData = async (query) => {
-    const city = await fetchJson(`http://localhost:3333/destinations?search=${query}`)
-    const weather = await fetchJson(`http://localhost:3333/weathers?search=${query}`)
+    const city = fetchJson(`http://localhost:3333/destinations?search=${query}`)
+    const weather = fetchJson(`http://localhost:3333/weathers?search=${query}`)
+
+    const dashboard = await Promise.all([city, weather])
+
+    console.log(dashboard)
 
     console.log(`
-        Nome completo: ${city[0].name}
-        Paese: ${city[0].country}
-        Temperatura: ${weather[0].temperature}°C
-        Temperatura: ${weather[0].weather_description}
+        Nome completo: ${dashboard[0][0].name}
+        Paese: ${dashboard[0][0].country}
+        Temperatura: ${dashboard[1][0].temperature}°C
+        Temperatura: ${dashboard[1][0].weather_description}
         `
     );
 }
