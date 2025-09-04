@@ -12,11 +12,9 @@ const getDashboardData = async (query) => {
     const dashboard = await Promise.all([city, weather, airport])
 
     console.log(`
-        Nome completo: ${dashboard[0][0].name}
-        Paese: ${dashboard[0][0].country}
-        Temperatura: ${dashboard[1][0].temperature}°C
-        Meteo: ${dashboard[1][0].weather_description}
-        Aeroporto: ${dashboard[2][0].name}
+       ${dashboard[0][0].name} is in ${dashboard[0][0].country}.
+       Today there are ${dashboard[1][0].temperature} degrees and the weather is ${dashboard[1][0].weather_description}.
+        The main airport is ${dashboard[2][0].name}.
         `
     );
 }
