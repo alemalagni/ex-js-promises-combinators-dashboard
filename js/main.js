@@ -11,8 +11,6 @@ const getDashboardData = async (query) => {
 
     const dashboard = await Promise.all([city, weather, airport])
 
-    console.log(dashboard)
-
     console.log(`
         Nome completo: ${dashboard[0][0].name}
         Paese: ${dashboard[0][0].country}
